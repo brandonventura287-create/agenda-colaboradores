@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Resumen - Agenda de Colaboradores
+{% endblock %}
+
+{% block contenido %}
+
+<div class="mb-4">
+
+    <h2>Resumen por Día</h2>
+
+    <p class="text-muted">
+        Cantidad de colaboradores registrados por cada día de la semana.
+    </p>
+
+</div>
+
+
+<div class="card shadow">
+
+    <div class="card-body">
+
+        <div class="table-responsive">
+
+            <table class="table table-striped table-hover align-middle">
+
+                <thead class="table-dark">
+
+                    <tr>
+                        <th>Día</th>
+                        <th>Cantidad de colaboradores</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for dia, cantidad in resumen.items() %}
+
+                    <tr>
+
+                        <td>
+                            {{ dia }}
+                        </td>
+
+                        <td>
+                            {{ cantidad }}
+                        </td>
+
+                    </tr>
+
+                    {% else %}
+
+                    <tr>
+
+                        <td colspan="2" class="text-center text-muted py-4">
+                            No hay información disponible.
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="mt-4">
+
+    <a href="/" class="btn btn-primary">
+        Registrar colaborador
+    </a>
+
+    <a href="/colaboradores" class="btn btn-secondary">
+        Ver colaboradores
+    </a>
+
+</div>
+
+{% endblock %}
