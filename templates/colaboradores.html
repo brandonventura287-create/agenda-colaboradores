@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Colaboradores - Agenda de Colaboradores
+{% endblock %}
+
+{% block contenido %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+        <h2>Lista de Colaboradores</h2>
+        <p class="text-muted mb-0">
+            Colaboradores registrados en la agenda
+        </p>
+    </div>
+
+    <a href="/" class="btn btn-primary">
+        Nuevo colaborador
+    </a>
+
+</div>
+
+
+<div class="card shadow">
+
+    <div class="card-body">
+
+        <div class="table-responsive">
+
+            <table class="table table-striped table-hover align-middle">
+
+                <thead class="table-dark">
+
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>Día</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for colaborador in colaboradores %}
+
+                    <tr>
+
+                        <td>
+                            {{ colaborador.nombre }}
+                        </td>
+
+                        <td>
+                            {{ colaborador.apellido }}
+                        </td>
+
+                        <td>
+                            {{ colaborador.edad }} años
+                        </td>
+
+                        <td>
+                            {{ colaborador.dia }}
+                        </td>
+
+                    </tr>
+
+                    {% else %}
+
+                    <tr>
+
+                        <td colspan="4" class="text-center text-muted py-4">
+
+                            No hay colaboradores registrados.
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
