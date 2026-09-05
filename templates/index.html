@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Inicio - Agenda de Colaboradores
+{% endblock %}
+
+{% block contenido %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-8 col-lg-6">
+
+        <div class="card shadow">
+
+            <div class="card-body p-4">
+
+                <h2 class="text-center mb-4">
+                    Registro de Colaboradores
+                </h2>
+
+                <p class="text-center text-muted">
+                    Ingresa los datos del colaborador
+                </p>
+
+                <form action="/guardar" method="POST">
+
+                    <!-- Nombre -->
+                    <div class="mb-3">
+
+                        <label for="nombre" class="form-label">
+                            Nombre
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="nombre"
+                            name="nombre"
+                            placeholder="Ingrese el nombre"
+                            required
+                            minlength="2"
+                            maxlength="50">
+
+                    </div>
+
+
+                    <!-- Apellido -->
+                    <div class="mb-3">
+
+                        <label for="apellido" class="form-label">
+                            Apellido
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="apellido"
+                            name="apellido"
+                            placeholder="Ingrese el apellido"
+                            required
+                            minlength="2"
+                            maxlength="50">
+
+                    </div>
+
+
+                    <!-- Fecha de nacimiento -->
+                    <div class="mb-3">
+
+                        <label for="fecha_nacimiento" class="form-label">
+                            Fecha de nacimiento
+                        </label>
+
+                        <input
+                            type="date"
+                            class="form-control"
+                            id="fecha_nacimiento"
+                            name="fecha_nacimiento"
+                            required>
+
+                    </div>
+
+
+                    <!-- Día de la semana -->
+                    <div class="mb-4">
+
+                        <label for="dia" class="form-label">
+                            Día
+                        </label>
+
+                        <select
+                            class="form-select"
+                            id="dia"
+                            name="dia"
+                            required>
+
+                            <option value="" selected disabled>
+                                Seleccione un día
+                            </option>
+
+                            <option value="Lunes">Lunes</option>
+                            <option value="Martes">Martes</option>
+                            <option value="Miércoles">Miércoles</option>
+                            <option value="Jueves">Jueves</option>
+                            <option value="Viernes">Viernes</option>
+                            <option value="Sábado">Sábado</option>
+                            <option value="Domingo">Domingo</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Botón -->
+                    <div class="d-grid">
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary">
+
+                            Guardar colaborador
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
